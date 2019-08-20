@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "sarahs-maintenancetracker-client",
+    "name": "maintenancetracker-client",
+    "routes": [
+        {
+            "src": "^/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": ".*",
+            "dest": "/index.html"
+        }
+    ]
+}
