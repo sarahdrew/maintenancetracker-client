@@ -31,7 +31,8 @@ export default class UpdateRequest extends Component {
                         <input type="text" name="notes" id="notes" placeholder="notes about project completed" />
                         </div>
                         <div>
-                            <button type='submit'>Submit</button>
+                            <button type='submit'
+                            >Submit</button>
                         </div>
                     </form>
                 </div>

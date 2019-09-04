@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import { Button, Input, Required } from '../Utils/Utils';
-//import AuthApiService from '../../src/services/auth-api-service';
+import AuthApiService from '../../src/services/auth-api-service';
 //import './RegistrationForm.css'
 
 export default class Registration extends Component {
@@ -10,30 +10,34 @@ export default class Registration extends Component {
 
     state = { error: null }
 
-    // handleSubmit = event => {
-    //     event.preventDefault()
-    //     const { full_name, user_name, password } = event.target
+    handleSubmit = event => {
+        console.log(`handling the submit for registration`)
+        event.preventDefault()
+        const { full_name, email, password } = event.target
 
-    //     this.setState({ error: null })
-    //     AuthApiService.postUser({
-    //         user_name: user_name.value,
-    //         password: password.value,
-    //         full_name: full_name.value,
-    //     })
-    //         .then(user => {
-    //             full_name.value = ''
-    //             user_name.value = ''
-    //             password.value = ''
-    //             this.props.onRegistrationSuccess()
-    //             this.props.history.push(`/sign-in`)
-    //         })
+        this.setState({ error: null })
+        AuthApiService.postUser({
+            email: email.value,
+            password: password.value,
+            full_name: full_name.value,
+        })
+            .then(user => {
+                full_name.value = ''
+                email.value = ''
+                password.value = ''
+                console.log(`push history to sign in`)
+                this.props.onRegistrationSuccess();
 
-    //         .catch(res => {
-    //             this.setState({ error: res.error })
-    //         })
+                this.props.history.push(`/sign-in`)
+
+            })
+
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
 
 
-    // }
+    }
 
     render() {
         const { error } = this.state
@@ -46,11 +50,11 @@ export default class Registration extends Component {
                 <div className="total-registration-form">
                     <form
                         className='RegistrationForm'
-                    // onSubmit={this.handleSubmit}
+                        onSubmit={this.handleSubmit}
                     >
 
                         <div role='alert'>
-                            {error && <p className='red'>{error}</p>}
+                            {error && <p className='red'>{Object.keys(error)}</p>}
                         </div>
                         <div className='full_name'>
                             <label htmlFor='RegistrationForm__full_name'>
@@ -76,7 +80,7 @@ export default class Registration extends Component {
 
                         </div>
                         <div className='password'>
-                            <p><i>Password must be at least 8 characters long, contain a special character, one upper case letter and one lower case letter.</i></p>
+                            <p>Demo123! <i>Password must be at least 8 characters long, contain a special character, one upper case letter and one lower case letter.</i></p>
                             <label htmlFor='RegistrationForm__password'>
                                 Password
                             </label>

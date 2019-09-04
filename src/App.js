@@ -5,6 +5,7 @@ import AllRequests from "./AllRequests/AllRequests";
 import Registration from './Registration/Registration';
 import SignIn from './SignIn/SignIn';
 import UpdateRequest from './UpdateRequest/UpdateRequest';
+import CreateRequest from './CreateRequest/CreateRequest';
 import Nav from './Nav/Nav';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/update-request" component={UpdateRequest} />
         <Route path='/register' component={Registration} />
         <Route path='/sign-in' component={SignIn} />
+        <Route path='/create-request' component={CreateRequest} />
 
       </main>
     </div>

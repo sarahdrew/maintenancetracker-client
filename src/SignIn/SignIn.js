@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import TokenService from '../services/token-service'
 //import { Button, Input } from '../Utils/Utils';
-//import AuthApiService from '../../src/services/auth-api-service';
+import AuthApiService from '../../src/services/auth-api-service';
 
 export default class LoginForm extends Component {
     static defaultProps = {
@@ -10,27 +10,27 @@ export default class LoginForm extends Component {
 
     state = { error: null }
 
-    // handleSubmitBasicAuth = ev => {
-    //     ev.preventDefault()
-    //     const { user_name, password } = ev.target
-    //     // not needed: TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
+    handleSubmitBasicAuth = ev => {
+        ev.preventDefault()
+        const { email, password } = ev.target
+        // not needed: TokenService.saveAuthToken(TokenService.makeBasicAuthToken(email.value, password.value))
 
-    //     AuthApiService.postLogin({
-    //         user_name: user_name.value,
-    //         password: password.value
-    //     })
-    //         .then(user => {
+        AuthApiService.postLogin({
+            email: email.value,
+            password: password.value
+        })
+            .then(user => {
 
-    //             user_name.value = ''
-    //             password.value = ''
-    //             this.props.onSigninSuccess()
-    //             this.props.history.push(`/signed-in`)
-    //         })
-    //         .catch(res => {
-    //             this.setState({ error: res.error })
-    //         })
+                email.value = ''
+                password.value = ''
+                this.props.onSigninSuccess()
+                this.props.history.push(`/signed-in`)
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
 
-    // }
+    }
 
     render() {
         const { error } = this.state
