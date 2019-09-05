@@ -17,15 +17,15 @@ const RequestApiService = {
             })
             .then(requests => {
 
-                return request;
+                return requests;
 
 
             })
 
     },
-    getRequest(requestId) {
-        // console.log(`request-api-srevice requestId: `, requestId)
-        return fetch(`${config.API_ENDPOINT}/api/requests/${requestId}`, {
+    getRequest(requestsId) {
+        console.log(`request-api-srevice requestsId: `, requestsId)
+        return fetch(`${config.API_ENDPOINT}/api/requests/${requestsId}`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`
             },
@@ -36,7 +36,7 @@ const RequestApiService = {
                     : res.json()
             )
             .then(responseJson => {
-                // console.log(`getRequest(requestId) responseJson`, responseJson)
+                // console.log(`getRequest(requestsId) responseJson`, responseJson)
                 return responseJson
             })
             .then(request => {

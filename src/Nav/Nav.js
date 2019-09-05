@@ -14,7 +14,7 @@ export default class Nav extends Component {
                     |
                      <Link to='/register'>Register </Link> |
                      <Link to='sign-in'>Sign In/Out </Link> |
-                     <Link to='/requests'> MY PROFILE</Link> |
+                     <Link to='/requests'> My requests</Link> |
                      <Link to='/create-request'>Create Request</Link>
                 </div>
             </>

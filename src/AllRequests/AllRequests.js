@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
+import RequestApiService from '../services/request-api-service';
+import RequestsContext from '../contexts/RequestsContext';
+import RequestPage from '../RequestPage/RequestPage';
+import { Link } from "react-router-dom";
 
 export default class AllRequests extends Component {
+
+    static contextType = RequestsContext
+
+    componentDidMount() {
+        RequestApiService.getAllRequests()
+            .then(requests => this.context.setRequests(requests))
+            .catch(error => console.error(error))
+    }
     render() {
+        console.log(this.context.requests);
         return (
             <div className="total-request-item">
                 <div className="request-content">
                     <header className="totalRequestItem__header">
-                        <h2> All requests from tenant</h2>
-                        <h3 className="totalRequestItem__heading">
-                            Request Description Name
-                        </h3>
+                        <h2> All requests for landlord:</h2>
                     </header>
-                    <div className="request-item">
-                        <p>Description: Lorem ipsum blah blah blah blah blah</p>
-                    </div>
+                    {
+                        this.context.requests.map(request => {
+                            return (
+                                <div className="requests">
+                                    ---------------------------------------
+                                    <p><Link to="/requests/:requestsId"> Request Title: {request.title}</Link></p>
+
+                                    <p>{request.description}</p>
+                                    ---------------------------------------
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         )

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import config from "../config";
 import ApiContext from "../ApiContext";
 import RequestsForm from '../RequestsForm/RequestsForm';
-//import TokenService from '../services/token-service';
+import TokenService from '../services/token-service';
 
 
 export default class CreateRequest extends Component {
@@ -48,7 +48,7 @@ export default class CreateRequest extends Component {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                // 'Authorization': `bearer ${TokenService.getAuthToken()}`
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify(request)
         })
@@ -56,12 +56,13 @@ export default class CreateRequest extends Component {
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
-                console.log(`response.json()`, response.json())
+
                 return response.json()
             })
             .then(request => {
                 this.context.addRequest(request);
-                this.props.history.push(`/requets/${request.id}`)
+                // this.props.history.push(`/requests/${request.id}`)
+                this.props.history.push('/request-sent')
             })
             .catch(error => {
                 console.error({ error })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import TokenService from '../services/token-service'
+import TokenService from '../services/token-service'
 //import { Button, Input } from '../Utils/Utils';
 import AuthApiService from '../../src/services/auth-api-service';
 
@@ -13,18 +13,19 @@ export default class LoginForm extends Component {
     handleSubmitBasicAuth = ev => {
         ev.preventDefault()
         const { email, password } = ev.target
-        // not needed: TokenService.saveAuthToken(TokenService.makeBasicAuthToken(email.value, password.value))
+        TokenService.saveAuthToken(TokenService.makeBasicAuthToken(email.value, password.value))
 
         AuthApiService.postLogin({
             email: email.value,
             password: password.value
         })
             .then(user => {
-
                 email.value = ''
                 password.value = ''
                 this.props.onSigninSuccess()
+                console.log(`pushing to signed in page`)
                 this.props.history.push(`/signed-in`)
+
             })
             .catch(res => {
                 this.setState({ error: res.error })
@@ -43,7 +44,7 @@ export default class LoginForm extends Component {
                 </div>
                 <form
                     className='SigninForm'
-                // onSubmit={this.handleSubmitBasicAuth}
+                    onSubmit={this.handleSubmitBasicAuth}
                 >
                     <div role='alert'>
                         {error && <p className='red'>{error}</p>}
