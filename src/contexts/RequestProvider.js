@@ -21,7 +21,9 @@ export class RequestsProvider extends Component {
     setRequest = request => {
         this.setState({ request })
     }
-
+    updateRequests = request => {
+        this.setState({ request })
+    }
 
 
     render() {

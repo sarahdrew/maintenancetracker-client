@@ -1,6 +1,6 @@
 import TokenService from './token-service';
 import config from '../config'
-import { request } from 'https';
+
 
 
 const RequestApiService = {
@@ -40,7 +40,7 @@ const RequestApiService = {
                 return responseJson
             })
             .then(request => {
-                console.log(`single request as responseJson: `, request)
+                //console.log(`single request as responseJson: `, request)
                 return request
             })
 

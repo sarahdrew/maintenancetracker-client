@@ -5,7 +5,8 @@ import AuthApiService from '../../src/services/auth-api-service';
 
 export default class LoginForm extends Component {
     static defaultProps = {
-        onSigninSuccess: () => { }
+        onSigninSuccess: () => { },
+        isSignedIn: false,
     }
 
     state = { error: null }
@@ -24,11 +25,12 @@ export default class LoginForm extends Component {
                 password.value = ''
                 this.props.onSigninSuccess()
                 console.log(`pushing to signed in page`)
+                this.setState({ isSignedIn: true })
                 this.props.history.push(`/signed-in`)
 
             })
             .catch(res => {
-                this.setState({ error: res.error })
+
             })
 
     }

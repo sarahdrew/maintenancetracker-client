@@ -64,14 +64,16 @@ export default class Registration extends Component {
                                     type='radio'
                                     name='landlord_tenant'
                                     required
-                                    id='RegistrationForm__landlord' />
+                                    id='RegistrationForm__landlord'
+                                    value="landlord" />
                             </p>
                             <p><label htmlFor="tenant_tenant">       Tenant</label>
                                 <input
                                     type='radio'
                                     name='landlord_tenant'
                                     required
-                                    id='RegistrationForm__tenant' /></p>
+                                    id='RegistrationForm__tenant'
+                                    value="tenant" /></p>
 
                         </div>
                         <div className='full_name'>
