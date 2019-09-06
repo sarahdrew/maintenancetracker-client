@@ -77,7 +77,7 @@ export default class CreateRequest extends Component {
         return (
             <section className="create-request">
                 <h1>Offer your space</h1>
-                <p>You can create your request as a signed in tenant. Enter in your request below.</p>
+                <p>You can create your request as a signed-in user. Enter in your request below.</p>
                 <RequestsForm onSubmit={this.handleSubmit}>
                     <div className="field">
                         <label htmlFor="title">Title</label>
@@ -96,7 +96,10 @@ export default class CreateRequest extends Component {
 
 
                     <button type='submit' onSubmit={this.handleSubmit}>Send my request</button>
+                    Request not working? Make sure you've registered for an account and signed in.
                 </RequestsForm>
+
+
             </section>
         )
     }
