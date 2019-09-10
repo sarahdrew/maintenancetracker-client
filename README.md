@@ -1,6 +1,6 @@
 # MaintenanceTracker
 
-![Logo](https://github.com/sarahdrew/maintenancetracker-client/blob/master/logo.png)
+![Logo](https://github.com/sarahdrew/maintenancetracker-client/blob/master/smaller-logo.png)
 
 ### Link to 
 
@@ -38,7 +38,7 @@ MaintenanceTracker is an application for tenants and landlords to communicate ef
 [Repo for API](https://github.com/sarahdrew/maintenancetracker-server)
 
 Landing Page
-![LandingPage](link to image)
+![LandingPage](https://github.com/sarahdrew/maintenancetracker-client/blob/master/LandingPage.png)
 
 
 Register for an account
