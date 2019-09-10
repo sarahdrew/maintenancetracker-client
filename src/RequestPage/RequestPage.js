@@ -3,8 +3,8 @@ import RequestsContext from '../contexts/RequestsContext';
 import RequestApiService from '../services/request-api-service';
 import TokenService from '../services/token-service';
 import config from '../config';
-
-
+import TrackerImage from '../TrackerImage/TrackerImage';
+import "../AllRequests/AllRequests.css"
 
 export default class RequestPage extends Component {
     constructor(props) {
@@ -13,7 +13,8 @@ export default class RequestPage extends Component {
             title: '',
             description: '',
             status: '',
-            updated: false
+            message: '',
+
         }
     }
     static defaultProps = {
@@ -26,10 +27,13 @@ export default class RequestPage extends Component {
     static contextType = RequestsContext
 
 
-    updateRequests(status) {
+    updateRequests(title, description, status, message) {
         this.setState({
+            title: title,
+            description: description,
             status: status,
-            updated: true
+            message: message,
+
         })
     }
 
@@ -44,12 +48,12 @@ export default class RequestPage extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(`handleSubmit for update tracker begins`);
-        console.log(`description: `, event.target.status.value)
+
         const update = {
             title: this.context.request.title,
             description: this.context.request.description,
             status: event.target.status.value,
+            message: event.target.message.value,
             id: this.context.request.id
         }
         fetch(`${config.API_ENDPOINT}/api/requests/${this.context.request.id}`, {
@@ -61,7 +65,7 @@ export default class RequestPage extends Component {
             body: JSON.stringify(update)
         })
             .then(response => {
-                console.log(response);
+
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
@@ -69,7 +73,7 @@ export default class RequestPage extends Component {
                 return response.json()
             })
             .then(update => {
-                console.log('UPDate: ', update);
+
                 this.context.updateRequests(update);
 
             })
@@ -81,28 +85,52 @@ export default class RequestPage extends Component {
 
     renderRequest() {
         const { request } = this.context
-        console.log(`request: `, { request })
+
         return <>
-            <h2>Title: </h2>
-            {request.title}
+            <div className="total-request-item">
+                <div className="request-info">
+                    <b> Title: </b>
+                    {request.title}
 
-            <p> <b>Description: </b>{request.description}</p>
-            {this.context.request.status &&
-                <div>
-                    State: {this.context.request.status}
-                    <br /><br />
+                    <p> <b>Description: </b>{request.description}</p>
+                    {this.context.request.status &&
+                        <div className="status-image">
+                            <p>Current status: {this.context.request.status}</p>
+                            <p><TrackerImage /></p>
+                        </div>
+                    }
+                    Message: {request.message}
                 </div>
-            }
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="status">What's the status?</label>
-                <input type='radio' name='status' value="received" /> project received
-                 <input type='radio' name='status' value="started" /> project started
-                 <input type='radio' name='status' value="completed" /> project completed
-             <button type="submit"> Update progress</button>
+                <div className="status-form">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="just-status">
+                            <div className="whats-the-status">
+                                <label htmlFor="status">What's the status?</label>
+                            </div>
 
-            </form>
+                            <div className="status-received">
+                                <input type='radio' name='status' value="received" checked="checked"
+                                    onChange={event => this.updateRequests(event.target.value)} />  received
+                            </div>
+                            <div className="status-start">
+                                <input type='radio' name='status' value="started"
+                                    onChange={event => this.updateRequests(event.target.value)} />  started
+                            </div>
+                            <div className="status-completed">
+                                <input type='radio' name='status' value="completed"
+                                    onChange={event => this.updateRequests(event.target.value)} />  completed
+                            </div>
+                        </div>
+                        <div className="message">
+                            <label htmlFor="message">Message about request</label>
+                            <input type="text" name='message' placeholder="None for now" />
+                            <button type="submit"> Update progress</button>
+                        </div>
 
 
+                    </form>
+                </div>
+            </div>
         </>
 
     }
@@ -111,16 +139,19 @@ export default class RequestPage extends Component {
         const { request } = this.context
         return (
             <>
-                <h2>Title: </h2>
-                {request.title}
-                <p> <b>Description: </b>{request.description}</p>
-                <p>Status: {request.status}</p>
+                <div className="total-request-item">
+                    <h2>Title: </h2>
+                    {request.title}
+                    <p> <b>Description: </b>{request.description}</p>
+                    <p>Status: {request.status}</p>
+                    <TrackerImage />
+                    <p>Message: {request.message}</p>
+                </div>
             </>
         )
     }
 
     render() {
-        console.log(this.context)
         const { request } = this.context
 
         let content
@@ -139,11 +170,3 @@ export default class RequestPage extends Component {
 
 }
 
-
-// function RequestDescription({ request }) {
-//     return (
-//         <span className='RequestPage__description'>
-//             {request.description}
-//         </span>
-//     )
-// }

@@ -1,0 +1,74 @@
+.request-content{
+    padding: 3%;
+}
+.requests{
+border: double;
+outline-color: green;
+    padding: 10px;
+    margin: 10px;
+}
+.requests a:active{
+    color: green;
+}
+.requests a:hover{
+    color: green;
+}
+.requests b{
+    color: green;
+}
+
+/* .status-image img {
+    position: absolute;
+    right: 0px;
+    top: 70px;
+} */
+
+form input {
+    width: 80%;
+    padding: 10px 20px;
+    margin: 0px;
+    font-size: 18px;
+}
+
+.status-form{
+    display: block;
+    border: double;
+    outline-color: rgb(6, 63, 15);
+    margin: 10px;
+}
+
+.status-received{
+    width: 30%;
+    float: left;
+    padding: 10px;
+}
+.status-start{
+    width: 30%;
+    float: left;
+    padding: 10px;
+}
+
+.status-completed{
+    width: 30%;
+    float: left;
+    padding: 10px;
+}
+
+.whats-the-status{
+    padding: 10px;
+}
+.whats-the-status label{
+    text-align: left;
+    font-size: 18px;
+}
+
+.request-info{
+    outline-color: rgb(6, 63, 15);
+    border: double;
+    padding: 20px;
+    margin: 10px;
+}
+
+.message{
+    position: static;
+}

@@ -10,7 +10,7 @@ import Nav from './Nav/Nav';
 import RequestPage from './RequestPage/RequestPage';
 import RequestSent from './RequestSent/RequestSent';
 import RequestsContext from './contexts/RequestsContext';
-import FullNav from './FullNav/FullNav';
+import './App.css'
 
 
 
@@ -37,7 +37,7 @@ export default class App extends Component {
     return (
       <div className="App" >
         <RequestsContext.Provider value={this.state} >
-          <nav>{this.state.isSignedIn ? <FullNav /> : <Nav />}</nav>
+          <nav> <Nav /></nav>
           <main className='App'>
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/requests' component={AllRequests} />

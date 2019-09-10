@@ -1,0 +1,42 @@
+
+  
+  .Nav {
+    color: #288642;
+    border-radius: 2px;
+    display: flex;
+  }
+
+  .Nav a{
+    text-align: center;
+    margin: auto;
+    flex: 1;
+  }
+  .links {
+    list-style-type: none;
+    background-color: #e0e4e0;
+    color: black;
+    margin: 0;
+    flex: 2 1;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 20px;
+ }
+
+ a:hover{
+   text-decoration: underline;
+   color:#386944;
+ }
+
+ a:visited{
+  color: black;
+ }
+
+
+.nav-name{
+   flex: 1;
+   margin-top: auto;
+   margin-bottom: auto;
+   font-size: 20px;
+   text-align: center;
+}

@@ -1,0 +1,57 @@
+
+
+.total-registration-form{    
+    display: flex;
+    align-items: center;
+   
+    
+
+}
+
+form.RegistrationForm {
+    flex: 1;
+    padding: 20px;
+   
+
+   
+}
+form input{
+    width: 80%;
+    padding: 10px 20px;
+    margin: 2px;
+    font-size: 18px;
+
+}
+.headline{
+    text-align: center;
+}
+
+.landlord_tenant{
+    display: flex;
+    padding: 10px;
+
+}
+.landlord-radio{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    padding: 10px;
+
+}
+
+.tenant-radio{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    
+}
+
+h3{
+    color: #288642
+}
+
+label{
+    padding: 5px;
+    font-size: 17px;
+}

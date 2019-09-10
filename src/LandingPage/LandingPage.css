@@ -1,0 +1,34 @@
+.icon-image img {
+    width: 10%;
+    flex: 1 1;
+    text-align: center;
+}
+
+.icon-image{
+    flex: 1;
+}
+
+.headline h2{
+    flex: 1;
+}
+.LandingPage{
+    display: flex;
+}
+.explanation{
+    flex: 1;
+}
+.trackergif{
+    height: 0;
+    padding-bottom: 50%;
+    position: relative;
+    flex: 1;
+}
+
+.trackergif img {
+    width: 80%;
+}
+
+ul{
+    list-style-type: none;
+    text-align: left;
+}

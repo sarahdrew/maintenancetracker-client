@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import { Button, Input, Required } from '../Utils/Utils';
 import AuthApiService from '../../src/services/auth-api-service';
-//import './RegistrationForm.css'
+import './Registration.css'
 
 export default class Registration extends Component {
     static defaultProps = {
@@ -12,10 +12,9 @@ export default class Registration extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log(`handling the submit for registration`)
+
 
         const { full_name, email, password, landlord_tenant } = event.target
-        console.log(`full name: `, full_name, `landlord_tenant:`, landlord_tenant)
         this.setState({ error: null })
         AuthApiService.postUser({
             email: email.value,
@@ -28,14 +27,12 @@ export default class Registration extends Component {
                 email.value = ''
                 password.value = ''
                 landlord_tenant.value = ''
-                console.log(`push history to sign in`)
                 this.props.onRegistrationSuccess();
                 this.props.history.push(`/sign-in`)
 
             })
 
             .catch(res => {
-                console.log(`res`, res)
                 this.setState({ error: res.error })
             })
 
@@ -59,23 +56,29 @@ export default class Registration extends Component {
                             {error && <p className='red'>{Object.keys(error)}</p>}
                         </div>
                         <div className="landlord_tenant">
-                            <p><label htmlFor="landlord_tenant">Landlord   </label>
+                            <div className="choice">I am a ...</div>
+                            <div className="landlord-radio">
+                                <label htmlFor="landlord_tenant">Landlord   </label>
                                 <input
                                     type='radio'
                                     name='landlord_tenant'
                                     required
                                     id='RegistrationForm__landlord'
                                     value="landlord" />
-                            </p>
-                            <p><label htmlFor="tenant_tenant">       Tenant</label>
+
+                            </div>
+                            <div className="tenant-radio">
+                                <label htmlFor="tenant_tenant">       Tenant</label>
                                 <input
                                     type='radio'
                                     name='landlord_tenant'
                                     required
                                     id='RegistrationForm__tenant'
-                                    value="tenant" /></p>
+                                    value="tenant" />
 
+                            </div>
                         </div>
+
                         <div className='full_name'>
                             <label htmlFor='RegistrationForm__full_name'>
                                 Full name

@@ -3,7 +3,6 @@ import TokenService from './token-service'
 
 const AuthApiService = {
     postUser(user) {
-        //console.log(`fetch of postUser`)
         return fetch(`${config.API_ENDPOINT}/api/users`, {
             method: 'POST',
             headers: {
@@ -13,7 +12,7 @@ const AuthApiService = {
         })
             .then(res => {
                 return res.json();
-                // console.log(res);
+
                 // (!res.ok)
                 //     ? res.json().then(e => Promise.reject(e))
                 //     : res.json()
@@ -38,13 +37,11 @@ const AuthApiService = {
             )
             .then(res => {
 
-                //console.log(res.authToken)
                 TokenService.saveAuthToken(res.authToken)
 
                 // TokenService.queueCallbackBeforeExpiry(() => {
                 //     AuthApiService.postRefreshToken()
                 // })
-                //  console.log(`this is response in postLogin after `, res)
                 return res
             })
             .catch(err => {
@@ -72,7 +69,7 @@ const AuthApiService = {
                 return res
             })
             .catch(err => {
-                //  console.log('refresh token request error')
+
                 console.error(err)
             })
     },

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import TokenService from '../services/token-service'
-//import { Button, Input } from '../Utils/Utils';
 import AuthApiService from '../../src/services/auth-api-service';
 
-export default class LoginForm extends Component {
+export default class SignIn extends Component {
     static defaultProps = {
         onSigninSuccess: () => { },
         isSignedIn: false,
@@ -24,7 +23,7 @@ export default class LoginForm extends Component {
                 email.value = ''
                 password.value = ''
                 this.props.onSigninSuccess()
-                console.log(`pushing to signed in page`)
+
                 this.setState({ isSignedIn: true })
                 this.props.history.push(`/signed-in`)
 
@@ -43,6 +42,7 @@ export default class LoginForm extends Component {
                     <p>For a demo, use the following credentials:</p>
                     <p>email: demo@maintenancetracker.com</p>
                     <p>Password: Demo123!</p>
+                    <p>Otherwise, sign in with your registered information.</p>
                 </div>
                 <form
                     className='SigninForm'

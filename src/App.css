@@ -1,0 +1,85 @@
+*{
+    padding: 1px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body{
+    background: #f8f8f5;
+}
+
+main {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.explanation{
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+   
+    background-size: 100% 100%;
+   color:  #000000;
+}
+
+.explanation-wrapper{
+    background-color:  rgba(255,255,255,0.25);
+}
+
+
+
+button {
+    padding: 10px 25px;
+    background-color: #288642;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px;
+
+}
+
+button:active{
+    color: rgb(46, 85, 46);
+}
+
+button:hover{
+    color: rgb(46, 85, 46);
+}
+.background{
+    height: 25px;
+    width: 50%;
+      
+}
+
+.field{
+    padding: 15px;
+}
+.amenities-list{
+    vertical-align: middle;
+}
+
+.demo-explanation{
+    outline: 5px outset #288642;
+    margin: 10px;
+    padding: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+form {
+    padding: 5px;
+    margin: 10px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .trackergif img {
+        width: 85%;
+     
+      }
+      
+  }

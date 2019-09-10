@@ -3,7 +3,7 @@ import config from "../config";
 import ApiContext from "../ApiContext";
 import RequestsForm from '../RequestsForm/RequestsForm';
 import TokenService from '../services/token-service';
-
+import './CreateRequest.css'
 
 export default class CreateRequest extends Component {
     constructor(props) {
@@ -37,13 +37,13 @@ export default class CreateRequest extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(`handleSubmit for create request begins`);
+
 
         const request = {
             title: event.target["title"].value,
             description: event.target["description"].value,
         }
-        console.log(`config.API_ENDPOINT: `, config.API_ENDPOINT);
+
         fetch(`${config.API_ENDPOINT}/api/requests`, {
             method: "POST",
             headers: {
@@ -61,8 +61,8 @@ export default class CreateRequest extends Component {
             })
             .then(request => {
                 this.context.addRequest(request);
-                // this.props.history.push(`/requests/${request.id}`)
-                this.props.history.push('/request-sent')
+                this.props.history.push(`/requests/${request.id}`)
+
             })
             .catch(error => {
                 console.error({ error })
@@ -76,9 +76,9 @@ export default class CreateRequest extends Component {
     render() {
         return (
             <section className="create-request">
-                <h1>Offer your space</h1>
+                <h1>Create a request</h1>
                 <p>You can create your request as a signed-in user. Enter in your request below.</p>
-                <h5> Request not working? Make sure you've registered for an account and signed in.</h5>
+                <div className="request-not-working"> Request not working? Make sure you've registered for an account and signed in.</div>
                 <RequestsForm onSubmit={this.handleSubmit}>
                     <div className="field">
                         <label htmlFor="title">Title</label>

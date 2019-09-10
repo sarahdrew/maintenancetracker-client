@@ -12,7 +12,7 @@ const RequestApiService = {
                     : res.json()
             )
             .then(responseJson => {
-                console.log(`responseJson to put on the page: `, responseJson)
+
                 return responseJson
             })
             .then(requests => {
@@ -24,7 +24,6 @@ const RequestApiService = {
 
     },
     getRequest(requestsId) {
-        console.log(`request-api-srevice requestsId: `, requestsId)
         return fetch(`${config.API_ENDPOINT}/api/requests/${requestsId}`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`
@@ -36,11 +35,11 @@ const RequestApiService = {
                     : res.json()
             )
             .then(responseJson => {
-                // console.log(`getRequest(requestsId) responseJson`, responseJson)
+
                 return responseJson
             })
             .then(request => {
-                //console.log(`single request as responseJson: `, request)
+
                 return request
             })
 
