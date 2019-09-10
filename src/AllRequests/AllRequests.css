@@ -29,7 +29,9 @@ form input {
     margin: 0px;
     font-size: 18px;
 }
-
+.just-status{
+    width: 50%;
+}
 .status-form{
     display: block;
     border: double;
