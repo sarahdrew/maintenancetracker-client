@@ -10,6 +10,7 @@
     text-align: center;
     margin: auto;
     flex: 1;
+    color: black;
   }
   .links {
     list-style-type: none;

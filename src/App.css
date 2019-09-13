@@ -73,6 +73,17 @@ form {
     margin: 10px;
 }
 
+.RegistrationForm div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.alert{
+color: red;
+font-size: 22px;
+}
 
 
 @media only screen and (max-width: 600px) {

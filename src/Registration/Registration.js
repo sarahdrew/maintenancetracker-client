@@ -52,7 +52,7 @@ export default class Registration extends Component {
                         onSubmit={this.handleSubmit}
                     >
 
-                        <div role='alert'>
+                        <div className="alert" role='alert'>
                             {error && <p className='red'>{Object.keys(error)}</p>}
                         </div>
                         <div className="landlord_tenant">

@@ -53,12 +53,12 @@ export default class SignIn extends Component {
                     className='SigninForm'
                     onSubmit={this.handleSubmitBasicAuth}
                 >
-                    <div role='alert'>
+                    <div className="alert " role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
                     <div className='email'>
                         <label htmlFor='SigninForm__email'>
-                            email
+                            Email
           </label>
                         <input
                             type="text"

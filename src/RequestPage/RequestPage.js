@@ -28,13 +28,17 @@ export default class RequestPage extends Component {
 
 
     updateRequests(title, description, status, message) {
+        console.log(`message`, message)
+        console.log(`updateRequests started`)
         this.setState({
             title: title,
             description: description,
-            status: status,
             message: message,
+            status: status,
+
 
         })
+        console.log(`message`, message)
     }
 
     componentDidMount() {
@@ -56,6 +60,7 @@ export default class RequestPage extends Component {
             message: event.target.message.value,
             id: this.context.request.id
         }
+        console.log(event.target.message.value);
         fetch(`${config.API_ENDPOINT}/api/requests/${this.context.request.id}`, {
             method: "PUT",
             headers: {
@@ -74,8 +79,8 @@ export default class RequestPage extends Component {
             })
             .then(update => {
 
-                this.context.updateRequests(update);
-
+                this.updateRequests(update);
+                console.log(`update in handle submit`, update)
             })
             .catch(error => {
                 console.error({ error })
@@ -84,8 +89,10 @@ export default class RequestPage extends Component {
     }
 
     renderRequest() {
-        const { request } = this.context
 
+        const { request } = this.context
+        console.log(this.context.request);
+        console.log(request.message)
         return <>
             <div className="total-request-item">
                 <div className="request-info">
@@ -93,13 +100,15 @@ export default class RequestPage extends Component {
                     {request.title}
 
                     <p> <b>Description: </b>{request.description}</p>
+
+                    Message: {request.message}
                     {this.context.request.status &&
                         <div className="status-image">
                             <p>Current status: {this.context.request.status}</p>
                             <p><TrackerImage /></p>
                         </div>
                     }
-                    Message: {request.message}
+
                 </div>
                 <div className="status-form">
                     <form onSubmit={this.handleSubmit}>
@@ -109,22 +118,22 @@ export default class RequestPage extends Component {
                             </div>
 
                             <div className="status-received">
-                                <input type='radio' name='status' value="received" checked="checked"
-                                    onChange={event => this.updateRequests(event.target.value)} />  received
+                                <input type='radio' name='status' value="received"
+                                />  received
                             </div>
                             <div className="status-start">
                                 <input type='radio' name='status' value="started"
-                                    onChange={event => this.updateRequests(event.target.value)} />  started
+                                />  started
                             </div>
                             <div className="status-completed">
                                 <input type='radio' name='status' value="completed"
-                                    onChange={event => this.updateRequests(event.target.value)} />  completed
+                                />  completed
                             </div>
                         </div>
                         <div className="message">
                             <label htmlFor="message">Message about request</label>
                             <input type="text" name='message' placeholder="None for now" />
-                            <button type="submit"> Update progress</button>
+                            <button type="submit" > Update progress</button>
                         </div>
 
 
@@ -135,21 +144,6 @@ export default class RequestPage extends Component {
 
     }
 
-    renderUpdatedRequest() {
-        const { request } = this.context
-        return (
-            <>
-                <div className="total-request-item">
-                    <h2>Title: </h2>
-                    {request.title}
-                    <p> <b>Description: </b>{request.description}</p>
-                    <p>Status: {request.status}</p>
-                    <TrackerImage />
-                    <p>Message: {request.message}</p>
-                </div>
-            </>
-        )
-    }
 
     render() {
         const { request } = this.context
@@ -170,3 +164,8 @@ export default class RequestPage extends Component {
 
 }
 
+
+
+
+// onChange={event => this.updateRequests(event.target.value)}
+// checked="checked"

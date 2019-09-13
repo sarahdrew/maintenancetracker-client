@@ -78,7 +78,7 @@ export default class CreateRequest extends Component {
             <section className="create-request">
                 <h1>Create a request</h1>
                 <p>You can create your request as a signed-in user. Enter in your request below.</p>
-                <div className="request-not-working"> Request not working? Make sure you've registered for an account and signed in.</div>
+                <div className="request-not-working"> Request not sending? Make sure you've registered for an account and signed in.</div>
                 <RequestsForm onSubmit={this.handleSubmit}>
                     <div className="field">
                         <label htmlFor="title">Title</label>
