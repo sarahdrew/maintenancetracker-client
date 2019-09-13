@@ -2,7 +2,7 @@
 
 ![Logo](https://github.com/sarahdrew/maintenancetracker-client/blob/master/smaller-logo.png)
 
-### Link to 
+### Link to [Live App](https://sarahs-maintenancetracker-client.now.sh/)
 
 ## Technology used 
 React, CSS, Node, Express, PostgreSQL
@@ -10,7 +10,7 @@ React, CSS, Node, Express, PostgreSQL
 
 
 ## Summary
-MaintenanceTracker is an application for tenants and landlords to communicate efficiently about maintenance requests. After registering for an account, tenants can make requests about maintenance issues in their building and landlords update the progress of the request.
+MaintenanceTracker is a fullstack application for tenants and landlords to communicate efficiently about maintenance requests. After registering for an account, tenants can make requests about maintenance issues in their building and landlords update the progress of the request.
 
 
 ## API
@@ -36,6 +36,8 @@ MaintenanceTracker is an application for tenants and landlords to communicate ef
 ```
 
 [Repo for API](https://github.com/sarahdrew/maintenancetracker-server)
+
+## Pages of MaintenanceTracker
 
 Landing Page
 ![LandingPage](https://github.com/sarahdrew/maintenancetracker-client/blob/master/LandingPage.png)
