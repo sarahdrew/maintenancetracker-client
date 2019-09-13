@@ -20,12 +20,17 @@ export default class SignIn extends Component {
             password: password.value
         })
             .then(user => {
+                console.log('user', user);
                 email.value = ''
                 password.value = ''
-                this.props.onSigninSuccess()
+                if (user.hasOwnProperty('error')) {
+                    this.setState({ error: user.error });
+                } else {
+                    this.props.onSigninSuccess()
 
-                this.setState({ isSignedIn: true })
-                this.props.history.push(`/signed-in`)
+                    this.setState({ isSignedIn: true })
+                    this.props.history.push(`/signed-in`)
+                }
 
             })
             .catch(res => {

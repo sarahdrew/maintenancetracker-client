@@ -37,7 +37,7 @@ export default class App extends Component {
     return (
       <div className="App" >
         <RequestsContext.Provider value={this.state} >
-          <nav> <Nav /></nav>
+          <nav> <Route path="/" component={Nav} /></nav>
           <main className='App'>
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/requests' component={AllRequests} />

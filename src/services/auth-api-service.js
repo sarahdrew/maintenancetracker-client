@@ -22,6 +22,7 @@ const AuthApiService = {
             })
     },
 
+
     postLogin({ email, password }) {
         return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
             method: 'POST',
@@ -45,7 +46,8 @@ const AuthApiService = {
                 return res
             })
             .catch(err => {
-                // console.log(err)
+                console.log(err)
+                return (err);
             })
     },
     postRefreshToken() {
@@ -73,6 +75,11 @@ const AuthApiService = {
                 console.error(err)
             })
     },
+
+
 }
+
+
+
 
 export default AuthApiService
