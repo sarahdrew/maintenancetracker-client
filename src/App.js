@@ -9,6 +9,7 @@ import SignedIn from './SignedIn/SignedIn';
 import Nav from './Nav/Nav';
 import RequestPage from './RequestPage/RequestPage';
 import RequestSent from './RequestSent/RequestSent';
+import ThankYou from './ThankYou/ThankYou';
 import RequestsContext from './contexts/RequestsContext';
 import './App.css'
 
@@ -47,6 +48,7 @@ export default class App extends Component {
             <Route path='/signed-in' component={SignedIn} />
             <Route path='/requests/:requestsId' component={RequestPage} />
             <Route path='/request-sent' component={RequestSent} />
+            <Route path='/thank-you' component={ThankYou} />
           </main>
         </RequestsContext.Provider>
       </div>

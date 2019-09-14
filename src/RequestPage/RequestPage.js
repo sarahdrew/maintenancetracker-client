@@ -28,7 +28,6 @@ export default class RequestPage extends Component {
 
 
     updateRequests(updatedData) {
-        console.log(`inside update request`, updatedData[0]);
         this.setState({
             title: updatedData[0].title,
             description: updatedData[0].description,
@@ -40,7 +39,6 @@ export default class RequestPage extends Component {
     }
 
     componentDidMount() {
-        console.log(`component did mount`)
         const { requestsId } = this.props.match.params
         RequestApiService.getRequest(requestsId)
             .then(request => this.context.setRequest(request))
@@ -68,7 +66,6 @@ export default class RequestPage extends Component {
             body: JSON.stringify(update)
         })
             .then(response => {
-                console.log(`got initial response from fetch`)
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
@@ -76,8 +73,8 @@ export default class RequestPage extends Component {
                 return response.json()
             })
             .then(update => {
-                console.log(`got final response from fetch`, update);
                 this.updateRequests(update);
+                this.props.history.push('/thank-you')
 
             })
             .catch(error => {
@@ -87,10 +84,6 @@ export default class RequestPage extends Component {
     }
 
     renderRequest(request) {
-
-
-        console.log(`renderRequest request message`, request.message)
-
         return <>
             <div className="total-request-item">
                 <div className="request-info">
@@ -150,7 +143,6 @@ export default class RequestPage extends Component {
     render() {
         const { request } = this.context
 
-        console.log(`rendering`, this.state);
         let content
         if (request === undefined) {
             content = <div className='loading' />

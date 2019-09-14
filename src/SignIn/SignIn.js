@@ -20,7 +20,6 @@ export default class SignIn extends Component {
             password: password.value
         })
             .then(user => {
-                console.log('user', user);
                 email.value = ''
                 password.value = ''
                 if (user.hasOwnProperty('error')) {

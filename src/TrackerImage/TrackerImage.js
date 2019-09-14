@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RequestsContext from '../contexts/RequestsContext';
+import { thisExpression } from '@babel/types';
 
 
 
@@ -24,6 +25,7 @@ export default class TrackerImage extends Component {
     static contextType = RequestsContext
 
     render() {
+
         if (this.context.request.status === 'received') {
             return <img src={require('../imgs/tracker1.PNG')} alt="trackerfor request received" width="200" />
         }
