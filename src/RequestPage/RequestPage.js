@@ -27,23 +27,21 @@ export default class RequestPage extends Component {
     static contextType = RequestsContext
 
 
-    updateRequests(title, description, status, message) {
-        console.log(`message`, message)
-        console.log(`updateRequests started`)
+    updateRequests(updatedData) {
+        console.log(`inside update request`, updatedData[0]);
         this.setState({
-            title: title,
-            description: description,
-            message: message,
-            status: status,
-
+            title: updatedData[0].title,
+            description: updatedData[0].description,
+            status: updatedData[0].status,
+            message: updatedData[0].message,
 
         })
-        console.log(`message`, message)
+
     }
 
     componentDidMount() {
+        console.log(`component did mount`)
         const { requestsId } = this.props.match.params
-
         RequestApiService.getRequest(requestsId)
             .then(request => this.context.setRequest(request))
             .catch(error => console.error(error))
@@ -60,7 +58,7 @@ export default class RequestPage extends Component {
             message: event.target.message.value,
             id: this.context.request.id
         }
-        console.log(event.target.message.value);
+
         fetch(`${config.API_ENDPOINT}/api/requests/${this.context.request.id}`, {
             method: "PUT",
             headers: {
@@ -70,7 +68,7 @@ export default class RequestPage extends Component {
             body: JSON.stringify(update)
         })
             .then(response => {
-
+                console.log(`got initial response from fetch`)
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
@@ -78,9 +76,9 @@ export default class RequestPage extends Component {
                 return response.json()
             })
             .then(update => {
-
+                console.log(`got final response from fetch`, update);
                 this.updateRequests(update);
-                console.log(`update in handle submit`, update)
+
             })
             .catch(error => {
                 console.error({ error })
@@ -88,11 +86,11 @@ export default class RequestPage extends Component {
 
     }
 
-    renderRequest() {
+    renderRequest(request) {
 
-        const { request } = this.context
-        console.log(this.context.request);
-        console.log(request.message)
+
+        console.log(`renderRequest request message`, request.message)
+
         return <>
             <div className="total-request-item">
                 <div className="request-info">
@@ -102,9 +100,9 @@ export default class RequestPage extends Component {
                     <p> <b>Description: </b>{request.description}</p>
 
                     Message: {request.message}
-                    {this.context.request.status &&
+                    {request.status &&
                         <div className="status-image">
-                            <p>Current status: {this.context.request.status}</p>
+                            <p>Current status: {request.status}</p>
                             <p><TrackerImage /></p>
                         </div>
                     }
@@ -119,14 +117,18 @@ export default class RequestPage extends Component {
 
                             <div className="status-received">
                                 <input type='radio' name='status' value="received"
+
+
                                 />  received
                             </div>
                             <div className="status-start">
                                 <input type='radio' name='status' value="started"
+
                                 />  started
                             </div>
                             <div className="status-completed">
                                 <input type='radio' name='status' value="completed"
+
                                 />  completed
                             </div>
                         </div>
@@ -148,11 +150,17 @@ export default class RequestPage extends Component {
     render() {
         const { request } = this.context
 
+        console.log(`rendering`, this.state);
         let content
         if (request === undefined) {
             content = <div className='loading' />
         } else {
-            content = this.renderRequest()
+            if (this.state.title === '') {
+                content = this.renderRequest(request)
+            }
+            else {
+                content = this.renderRequest(this.state)
+            }
         }
         return (
             <div className="request-page">
@@ -168,4 +176,4 @@ export default class RequestPage extends Component {
 
 
 // onChange={event => this.updateRequests(event.target.value)}
-// checked="checked"
+// 

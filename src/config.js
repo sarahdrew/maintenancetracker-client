@@ -1,6 +1,6 @@
 export default {
-    API_ENDPOINT: `https://maintenancetracker-server.herokuapp.com`,
+    API_ENDPOINT: `http://localhost:8000`,
     TOKEN_KEY: `tokenKey`
 };
 
-// 
+// https://maintenancetracker-server.herokuapp.com
