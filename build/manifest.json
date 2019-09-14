@@ -3,7 +3,7 @@
   "name": "MaintenanceTracker",
   "icons": [
     {
-      "src": "../src/imgs/favicon.png",
+      "src": "https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/logo.png?raw=true",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
