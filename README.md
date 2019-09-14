@@ -1,6 +1,6 @@
 # MaintenanceTracker
 
-![Logo](https://github.com/sarahdrew/maintenancetracker-client/blob/master/smaller-logo.png)
+![Logo](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/logo.png)
 
 ### Link to [Live App](https://sarahs-maintenancetracker-client.now.sh/)
 
@@ -40,21 +40,21 @@ MaintenanceTracker is a fullstack application for tenants and landlords to commu
 ## Pages of MaintenanceTracker
 
 Landing Page
-![LandingPage](https://github.com/sarahdrew/maintenancetracker-client/blob/master/LandingPage.png)
+![LandingPage](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/LandingPage.png)
 
 
 Register for an account
-![Register](https://github.com/sarahdrew/maintenancetracker-client/blob/master/Register.png)
+![Register](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/Register.png)
 
 Sign In
-![SignIn](https://github.com/sarahdrew/maintenancetracker-client/blob/master/SignIn.png)
+![SignIn](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/SignIn.png)
 
 Single Request /Update Tracker
-![RequestPage] (https://github.com/sarahdrew/maintenancetracker-client/blob/master/RequestPage.png)
+![RequestPage](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/RequestPage.png)
 
 
 Create Request
-![CreateRequest](https://github.com/sarahdrew/maintenancetracker-client/blob/master/CreateRequest.png)
+![CreateRequest](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/CreateRequest.png)
 
 All Requests
-![AllRequests](https://github.com/sarahdrew/maintenancetracker-client/blob/master/AllRequests.png)
+![AllRequests](https://github.com/sarahdrew/maintenancetracker-client/blob/master/images/AllRequests.png)
