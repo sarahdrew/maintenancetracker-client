@@ -18,7 +18,8 @@ const AuthApiService = {
                 //     : res.json()
             })
             .catch(err => {
-                console.log(err)
+                return err;
+
             })
     },
 
@@ -46,7 +47,7 @@ const AuthApiService = {
                 return res
             })
             .catch(err => {
-                console.log(err)
+
                 return (err);
             })
     },

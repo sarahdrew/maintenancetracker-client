@@ -55,8 +55,9 @@ export default class Registration extends Component {
                         <div className="alert" role='alert'>
                             {error && <p className='red'>{Object.keys(error)}</p>}
                         </div>
+                        <div className="choice">I am a ...</div>
                         <div className="landlord_tenant">
-                            <div className="choice">I am a ...</div>
+
                             <div className="landlord-radio">
                                 <label htmlFor="landlord_tenant">Landlord   </label>
                                 <input
@@ -102,8 +103,10 @@ export default class Registration extends Component {
                                 id='RegistrationForm__email' />
 
                         </div>
+                        <div className="password-explanation"><p>Password must be at least 8 characters long, contain a special character, one upper case letter and one lower case letter.</p></div>
                         <div className='password'>
-                            <p><i>Password must be at least 8 characters long, contain a special character, one upper case letter and one lower case letter.</i></p>
+
+
                             <label htmlFor='RegistrationForm__password'>
                                 Password
                             </label>

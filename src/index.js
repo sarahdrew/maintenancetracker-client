@@ -12,6 +12,6 @@ function Index() {
     )
 }
 
-console.log(process.env)
+
 
 ReactDOM.render(<Index />, document.getElementById('root'));

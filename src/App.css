@@ -79,6 +79,9 @@ form {
     justify-content: space-around;
 
 }
+.choice{
+    position: absolute;
+}
 
 .alert{
 color: red;
@@ -87,9 +90,10 @@ font-size: 22px;
 
 
 @media only screen and (max-width: 600px) {
-    .trackergif img {
-        width: 85%;
-     
+    .RegistrationForm div{
+        display: flex;
       }
+
+     
       
   }
